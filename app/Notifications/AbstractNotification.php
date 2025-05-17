@@ -4,10 +4,10 @@ namespace App\Notifications;
 
 abstract class AbstractNotification implements NotificationInterface
 {
-    protected string $receiver;
+    protected string $nombre;
 
-    public function setReceiver(string $receiver): void
+    public function setReceiver(string $nombre): void
     {
-        $this->receiver = $receiver;
+        $this->nombre = $nombre;
     }
 }

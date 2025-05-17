@@ -8,16 +8,18 @@ use App\Notifications\WhatsappNotification;
 
 class NotificationController extends Controller
 {
-public function sendDemoNotifications()
-{
-    $email = new EmailNotification('Usuario', 'usuario@email.com');
-    $sms = new SmsNotification('Usuario', '+52', '1234567890');
-    $whatsapp = new WhatsappNotification('Usuario', '+52', '1234567890');
+    public function sendDemoNotifications()
+    {
 
-    return response()->json([
-        'email' => $email->send(),
-        'sms' => $sms->send(),
-        'whatsapp' => $whatsapp->send(),
-    ]);
-}
+        $nombre = "raul";
+        $email = new EmailNotification($nombre, 'usuario@email.com');
+        $sms = new SmsNotification($nombre, '+52', '1234567890');
+        $whatsapp = new WhatsappNotification($nombre, '+52', '1234567890');
+
+        return response()->json([
+            'email' => $email->send(),
+            'sms' => $sms->send(),
+            'whatsapp' => $whatsapp->send(),
+        ]);
+    }
 }
